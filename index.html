@@ -1,0 +1,3808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MarkTask</title>
+
+  <meta
+    name="description"
+    content="MarkTask - Earn money by completing social media tasks."
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- LOADING SCREEN -->
+  <div id="loadingScreen" class="loading-screen">
+
+    <div class="loading-logo">
+      <div class="logo-circle">M</div>
+
+      <h2>MarkTask</h2>
+
+      <p>Earn. Complete. Get Paid.</p>
+    </div>
+
+    <div class="loader"></div>
+
+  </div>
+
+
+  <!-- AUTH SECTION -->
+  <section id="authSection" class="auth-section hidden">
+
+    <div class="auth-container">
+
+      <div class="auth-logo">
+
+        <div class="logo-circle">
+          M
+        </div>
+
+        <h1>MarkTask</h1>
+
+        <p>Social task marketplace</p>
+
+      </div>
+
+
+      <!-- LOGIN -->
+      <div id="loginBox" class="auth-box">
+
+        <h2>Welcome Back 👋</h2>
+
+        <p class="auth-subtitle">
+          Login to your MarkTask account
+        </p>
+
+        <form id="loginForm">
+
+          <div class="form-group">
+
+            <label for="loginEmail">
+              Email
+            </label>
+
+            <input
+              type="email"
+              id="loginEmail"
+              placeholder="Enter your email"
+              autocomplete="email"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="loginPassword">
+              Password
+            </label>
+
+            <input
+              type="password"
+              id="loginPassword"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+              required
+            >
+
+          </div>
+
+
+          <button
+            type="submit"
+            class="btn btn-primary btn-full"
+          >
+            Login
+          </button>
+
+        </form>
+
+
+        <button
+          type="button"
+          id="forgotPasswordBtn"
+          class="text-btn"
+        >
+          Forgot password?
+        </button>
+
+
+        <p class="auth-switch">
+
+          Don't have an account?
+
+          <button
+            type="button"
+            id="showRegisterBtn"
+          >
+            Create Account
+          </button>
+
+        </p>
+
+      </div>
+            <!-- REGISTER -->
+      <div id="registerBox" class="auth-box hidden">
+
+        <h2>Create Account 🚀</h2>
+
+        <p class="auth-subtitle">
+          Join MarkTask and start earning
+        </p>
+
+
+        <form id="registerForm">
+
+          <div class="form-group">
+
+            <label for="registerName">
+              Full Name
+            </label>
+
+            <input
+              type="text"
+              id="registerName"
+              placeholder="Enter your full name"
+              autocomplete="name"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="registerUsername">
+              Username
+            </label>
+
+            <input
+              type="text"
+              id="registerUsername"
+              placeholder="Choose a username"
+              autocomplete="username"
+              required
+            >
+
+            <small>
+              Your username must be unique.
+            </small>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="registerEmail">
+              Email Address
+            </label>
+
+            <input
+              type="email"
+              id="registerEmail"
+              placeholder="Enter your email"
+              autocomplete="email"
+              required
+            >
+
+            <small>
+              A verification code will be sent to this email.
+            </small>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="registerPassword">
+              Password
+            </label>
+
+            <input
+              type="password"
+              id="registerPassword"
+              placeholder="Create a strong password"
+              autocomplete="new-password"
+              minlength="6"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="registerRole">
+              Account Type
+            </label>
+
+            <select
+              id="registerRole"
+              required
+            >
+
+              <option value="">
+                Select account type
+              </option>
+
+              <option value="earner">
+                Earner
+              </option>
+
+              <option value="advertiser">
+                Advertiser
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="checkbox-group">
+
+            <input
+              type="checkbox"
+              id="registerTerms"
+              required
+            >
+
+            <label for="registerTerms">
+              I agree to the MarkTask Terms and Conditions.
+            </label>
+
+          </div>
+
+
+          <button
+            type="submit"
+            class="btn btn-primary btn-full"
+          >
+            Create Account
+          </button>
+
+        </form>
+
+
+        <p class="auth-switch">
+
+          Already have an account?
+
+          <button
+            type="button"
+            id="showLoginBtn"
+          >
+            Login
+          </button>
+
+        </p>
+
+      </div>
+
+
+      <!-- EMAIL VERIFICATION -->
+      <div
+        id="verificationBox"
+        class="auth-box hidden"
+      >
+
+        <div class="verification-icon">
+          📧
+        </div>
+
+        <h2>
+          Verify Your Email
+        </h2>
+
+        <p class="auth-subtitle">
+          We sent a verification code to:
+        </p>
+
+        <strong
+          id="verificationEmail"
+          class="verification-email"
+        >
+          example@email.com
+        </strong>
+
+
+        <form id="verificationForm">
+
+          <div class="form-group">
+
+            <label for="verificationCode">
+              Verification Code
+            </label>
+
+            <input
+              type="text"
+              id="verificationCode"
+              placeholder="Enter 6-digit code"
+              inputmode="numeric"
+              maxlength="6"
+              autocomplete="one-time-code"
+              required
+            >
+
+          </div>
+
+
+          <button
+            type="submit"
+            class="btn btn-primary btn-full"
+          >
+            Verify Email
+          </button>
+
+        </form>
+
+
+        <button
+          type="button"
+          id="resendCodeBtn"
+          class="btn btn-secondary btn-full"
+        >
+          Resend Code
+        </button>
+
+
+        <button
+          type="button"
+          id="backToRegisterBtn"
+          class="text-btn"
+        >
+          ← Back to registration
+        </button>
+
+      </div>
+
+
+      <!-- FORGOT PASSWORD -->
+      <div
+        id="forgotPasswordBox"
+        class="auth-box hidden"
+      >
+
+        <h2>
+          Reset Password 🔐
+        </h2>
+
+        <p class="auth-subtitle">
+          Enter your email and we'll send you
+          a password reset code.
+        </p>
+
+
+        <form id="forgotPasswordForm">
+
+          <div class="form-group">
+
+            <label for="forgotEmail">
+              Email Address
+            </label>
+
+            <input
+              type="email"
+              id="forgotEmail"
+              placeholder="Enter your registered email"
+              required
+            >
+
+          </div>
+
+
+          <button
+            type="submit"
+            class="btn btn-primary btn-full"
+          >
+            Send Reset Code
+          </button>
+
+        </form>
+
+
+        <button
+          type="button"
+          id="backToLoginBtn"
+          class="text-btn"
+        >
+          ← Back to Login
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- MAIN APPLICATION -->
+  <div
+    id="app"
+    class="app hidden"
+  >
+        <!-- TOP HEADER -->
+    <header class="top-header">
+
+      <div class="header-left">
+
+        <button
+          type="button"
+          id="menuBtn"
+          class="icon-btn"
+          aria-label="Open menu"
+        >
+          ☰
+        </button>
+
+
+        <div class="header-brand">
+
+          <div class="small-logo">
+            M
+          </div>
+
+          <span>
+            MarkTask
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="header-right">
+
+        <button
+          type="button"
+          id="notificationBtn"
+          class="icon-btn"
+          aria-label="Notifications"
+        >
+
+          🔔
+
+          <span
+            id="notificationBadge"
+            class="notification-badge hidden"
+          >
+            0
+          </span>
+
+        </button>
+
+
+        <button
+          type="button"
+          id="profileBtn"
+          class="profile-mini"
+          aria-label="Profile"
+        >
+
+          <span id="profileInitial">
+            M
+          </span>
+
+        </button>
+
+      </div>
+
+    </header>
+
+
+    <!-- SIDE MENU -->
+    <aside
+      id="sideMenu"
+      class="side-menu"
+    >
+
+      <div class="side-menu-header">
+
+        <div class="side-profile">
+
+          <div
+            id="sideProfileAvatar"
+            class="side-avatar"
+          >
+            M
+          </div>
+
+
+          <div>
+
+            <strong id="sideProfileName">
+              Mark
+            </strong>
+
+            <small id="sideProfileUsername">
+              @username
+            </small>
+
+          </div>
+
+        </div>
+
+
+        <button
+          type="button"
+          id="closeMenuBtn"
+          class="icon-btn"
+          aria-label="Close menu"
+        >
+          ✕
+        </button>
+
+      </div>
+
+
+      <!-- NAVIGATION -->
+      <nav class="side-navigation">
+
+
+        <button
+          type="button"
+          class="side-nav-item active"
+          data-page="dashboardHome"
+        >
+
+          <span>🏠</span>
+
+          <span>
+            Dashboard
+          </span>
+
+        </button>
+
+
+        <button
+          type="button"
+          class="side-nav-item"
+          data-page="tasksPage"
+        >
+
+          <span>📋</span>
+
+          <span>
+            Tasks
+          </span>
+
+        </button>
+
+
+        <button
+          type="button"
+          class="side-nav-item"
+          data-page="historyPage"
+        >
+
+          <span>🕘</span>
+
+          <span>
+            History
+          </span>
+
+        </button>
+
+
+        <button
+          type="button"
+          class="side-nav-item"
+          data-page="withdrawPage"
+        >
+
+          <span>💰</span>
+
+          <span>
+            Withdraw
+          </span>
+
+        </button>
+
+
+        <button
+          type="button"
+          class="side-nav-item"
+          data-page="referralPage"
+        >
+
+          <span>👥</span>
+
+          <span>
+            Referral
+          </span>
+
+        </button>
+
+
+        <div class="menu-divider"></div>
+
+
+        <!-- ADVERTISER MENU -->
+        <button
+          type="button"
+          class="side-nav-item advertiser-only hidden"
+          data-page="advertiserDashboard"
+        >
+
+          <span>📊</span>
+
+          <span>
+            Advertiser Dashboard
+          </span>
+
+        </button>
+
+
+        <button
+          type="button"
+          class="side-nav-item advertiser-only hidden"
+          data-page="createTaskPage"
+        >
+
+          <span>➕</span>
+
+          <span>
+            Create Task
+          </span>
+
+        </button>
+
+
+        <button
+          type="button"
+          class="side-nav-item advertiser-only hidden"
+          data-page="campaignsPage"
+        >
+
+          <span>📢</span>
+
+          <span>
+            Campaigns
+          </span>
+
+        </button>
+
+
+        <!-- ADMIN MENU -->
+        <button
+          type="button"
+          class="side-nav-item admin-only hidden"
+          data-page="adminPage"
+        >
+
+          <span>🛠️</span>
+
+          <span>
+            Admin Panel
+          </span>
+
+        </button>
+
+
+        <div class="menu-divider"></div>
+
+
+        <!-- SUPPORT -->
+        <button
+          type="button"
+          class="side-nav-item"
+          data-page="supportPage"
+        >
+
+          <span>💬</span>
+
+          <span>
+            Support
+          </span>
+
+        </button>
+
+
+        <!-- LOGOUT -->
+        <button
+          type="button"
+          id="logoutBtn"
+          class="side-nav-item logout-item"
+        >
+
+          <span>🚪</span>
+
+          <span>
+            Logout
+          </span>
+
+        </button>
+
+      </nav>
+
+
+      <!-- SIDE MENU FOOTER -->
+      <div class="side-menu-footer">
+
+        <p>
+          MarkTask
+        </p>
+
+        <small>
+          Made by Mark Software
+        </small>
+
+      </div>
+
+    </aside>
+
+
+    <!-- MENU OVERLAY -->
+    <div
+      id="menuOverlay"
+      class="menu-overlay"
+    ></div>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+
+      <!-- EARNER DASHBOARD -->
+      <section
+        id="earnerDashboard"
+        class="page-section dashboard-page"
+      >
+
+
+        <!-- BALANCE CARD -->
+        <div class="balance-card">
+
+          <div class="balance-top">
+
+            <div>
+
+              <span class="balance-label">
+                Available Balance
+              </span>
+
+              <h1 id="availableBalance">
+                ₦0.00
+              </h1>
+
+            </div>
+
+
+            <div class="balance-icon">
+              💰
+            </div>
+
+          </div>
+
+
+          <div class="balance-bottom">
+
+            <div class="pending-balance">
+
+              <span>
+                Pending Balance
+              </span>
+
+              <strong id="pendingBalance">
+                ₦0.00
+              </strong>
+
+            </div>
+
+
+            <button
+              type="button"
+              class="balance-withdraw-btn"
+              data-page="withdrawPage"
+            >
+              Withdraw
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- QUICK ACTIONS -->
+        <div class="quick-actions">
+
+          <button
+            type="button"
+            class="quick-action"
+            data-page="tasksPage"
+          >
+
+            <div class="quick-icon">
+              📋
+            </div>
+
+            <span>
+              Tasks
+            </span>
+
+          </button>
+
+
+          <button
+            type="button"
+            class="quick-action"
+            data-page="withdrawPage"
+          >
+
+            <div class="quick-icon">
+              💸
+            </div>
+
+            <span>
+              Withdraw
+            </span>
+
+          </button>
+
+
+          <button
+            type="button"
+            class="quick-action"
+            data-page="historyPage"
+          >
+
+            <div class="quick-icon">
+              🕘
+            </div>
+
+            <span>
+              History
+            </span>
+
+          </button>
+
+
+          <button
+            type="button"
+            class="quick-action"
+            data-page="referralPage"
+          >
+
+            <div class="quick-icon">
+              👥
+            </div>
+
+            <span>
+              Refer
+            </span>
+
+          </button>
+
+        </div>
+
+
+        <!-- AVAILABLE TASKS -->
+        <div class="section-heading">
+
+          <div>
+
+            <h2>
+              Available Tasks
+            </h2>
+
+            <p>
+              Complete tasks and earn money
+            </p>
+
+          </div>
+
+
+          <button
+            type="button"
+            class="text-btn"
+            data-page="tasksPage"
+          >
+            View All
+          </button>
+
+        </div>
+
+
+        <div
+          id="dashboardTasks"
+          class="task-list"
+        >
+
+          <!-- Tasks loaded by JavaScript -->
+
+          </div>
+                <!-- TASKS PAGE -->
+        <section
+          id="tasksPage"
+          class="page-section hidden"
+        >
+
+          <div class="page-title">
+
+            <div>
+
+              <h1>
+                Available Tasks
+              </h1>
+
+              <p>
+                Choose a task and start earning
+              </p>
+
+            </div>
+
+
+            <button
+              type="button"
+              id="refreshTasksBtn"
+              class="icon-btn"
+            >
+              🔄
+            </button>
+
+          </div>
+
+
+          <!-- TASK FILTERS -->
+          <div class="task-filters">
+
+            <button
+              type="button"
+              class="filter-btn active"
+              data-filter="all"
+            >
+              All
+            </button>
+
+
+            <button
+              type="button"
+              class="filter-btn"
+              data-filter="tiktok"
+            >
+              TikTok
+            </button>
+
+
+            <button
+              type="button"
+              class="filter-btn"
+              data-filter="instagram"
+            >
+              Instagram
+            </button>
+
+
+            <button
+              type="button"
+              class="filter-btn"
+              data-filter="facebook"
+            >
+              Facebook
+            </button>
+
+
+            <button
+              type="button"
+              class="filter-btn"
+              data-filter="youtube"
+            >
+              YouTube
+            </button>
+
+
+            <button
+              type="button"
+              class="filter-btn"
+              data-filter="telegram"
+            >
+              Telegram
+            </button>
+
+          </div>
+
+
+          <div
+            id="allTasksList"
+            class="task-list"
+          >
+
+            <!-- Tasks loaded by JavaScript -->
+
+          </div>
+
+        </section>
+
+
+        <!-- TASK DETAILS -->
+        <section
+          id="taskDetailsPage"
+          class="page-section hidden"
+        >
+
+          <div class="page-title">
+
+            <button
+              type="button"
+              id="backToTasksBtn"
+              class="back-btn"
+            >
+              ← Back
+            </button>
+
+            <h1>
+              Task Details
+            </h1>
+
+          </div>
+
+
+          <div id="taskDetailsContainer">
+
+            <!-- Task details loaded by JavaScript -->
+
+          </div>
+
+        </section>
+
+
+        <!-- PROOF SUBMISSION -->
+        <section
+          id="proofPage"
+          class="page-section hidden"
+        >
+
+          <div class="page-title">
+
+            <button
+              type="button"
+              id="backFromProofBtn"
+              class="back-btn"
+            >
+              ← Back
+            </button>
+
+
+            <div>
+
+              <h1>
+                Submit Proof
+              </h1>
+
+              <p>
+                Complete the task and submit proof
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="proof-container">
+
+            <div class="proof-task-info">
+
+              <div
+                id="proofTaskIcon"
+                class="task-platform-icon"
+              >
+                📱
+              </div>
+
+
+              <div>
+
+                <h3 id="proofTaskTitle">
+                  Task
+                </h3>
+
+                <p id="proofTaskPlatform">
+                  Platform
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <form id="proofForm">
+
+              <div class="form-group">
+
+                <label for="proofUsername">
+                  Your Social Media Username
+                </label>
+
+                <input
+                  type="text"
+                  id="proofUsername"
+                  placeholder="@username"
+                  required
+                >
+
+                <small>
+                  Enter the username you used to complete the task.
+                </small>
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="proofText">
+                  Proof / Explanation
+                </label>
+
+                <textarea
+                  id="proofText"
+                  rows="5"
+                  placeholder="Explain how you completed the task..."
+                  required
+                ></textarea>
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="proofImage">
+                  Screenshot Proof
+                </label>
+
+
+                <div class="file-upload">
+
+                  <input
+                    type="file"
+                    id="proofImage"
+                    accept="image/*"
+                  >
+
+
+                  <div class="file-upload-content">
+
+                    <span>
+                      📷
+                    </span>
+
+                    <strong>
+                      Upload Screenshot
+                    </strong>
+
+                    <small>
+                      PNG, JPG or JPEG
+                    </small>
+
+                  </div>
+
+                </div>
+
+
+                <div
+                  id="proofImagePreview"
+                  class="image-preview hidden"
+                ></div>
+
+              </div>
+
+
+              <button
+                type="submit"
+                class="btn btn-primary btn-full"
+              >
+                Submit Proof
+              </button>
+
+            </form>
+
+          </div>
+
+        </section>
+
+
+        <!-- WITHDRAW PAGE -->
+        <section
+          id="withdrawPage"
+          class="page-section hidden"
+        >
+
+          <div class="page-title">
+
+            <div>
+
+              <h1>
+                Withdraw
+              </h1>
+
+              <p>
+                Withdraw your available earnings
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="withdraw-balance-card">
+
+            <span>
+              Available Balance
+            </span>
+
+            <strong id="withdrawAvailableBalance">
+              ₦0.00
+            </strong>
+
+          </div>
+
+
+          <div class="withdraw-container">
+
+            <form id="withdrawForm">
+
+              <div class="form-group">
+
+                <label for="withdrawAmount">
+                  Amount
+                </label>
+
+
+                <div class="money-input">
+
+                  <span>
+                    ₦
+                  </span>
+
+                  <input
+                    type="number"
+                    id="withdrawAmount"
+                    min="1"
+                    placeholder="Enter amount"
+                    required
+                  >
+
+                </div>
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="withdrawMethod">
+                  Withdrawal Method
+                </label>
+
+                <select
+                  id="withdrawMethod"
+                  required
+                >
+
+                  <option value="">
+                    Select method
+                  </option>
+
+                  <option value="bank">
+                    Nigerian Bank Account
+                  </option>
+
+                  <option value="opay">
+                    OPay
+                  </option>
+
+                  <option value="palmpay">
+                    PalmPay
+                  </option>
+
+                  <option value="moniepoint">
+                    Moniepoint
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="withdrawAccountName">
+                  Account Name
+                </label>
+
+                <input
+                  type="text"
+                  id="withdrawAccountName"
+                  placeholder="Account name"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="withdrawAccountNumber">
+                  Account Number
+                </label>
+
+                <input
+                  type="text"
+                  id="withdrawAccountNumber"
+                  placeholder="Account number"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="withdrawBank">
+                  Bank / Provider
+                </label>
+
+                <input
+                  type="text"
+                  id="withdrawBank"
+                  placeholder="Bank or payment provider"
+                  required
+                >
+
+              </div>
+
+
+              <div class="withdraw-notice">
+
+                <span>
+                  ℹ️
+                </span>
+
+                <p>
+                  Make sure your account details are correct
+                  before submitting your withdrawal request.
+                </p>
+
+              </div>
+
+
+              <button
+                type="submit"
+                class="btn btn-primary btn-full"
+              >
+                Request Withdrawal
+              </button>
+
+            </form>
+
+          </div>
+
+  </section>
+          <!-- HISTORY PAGE -->
+        <section
+          id="historyPage"
+          class="page-section hidden"
+        >
+
+          <div class="page-title">
+
+            <div>
+
+              <h1>
+                Transaction History
+              </h1>
+
+              <p>
+                View your completed tasks and withdrawals
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="history-tabs">
+
+            <button
+              type="button"
+              class="history-tab active"
+              data-history="earnings"
+            >
+              Earnings
+            </button>
+
+
+            <button
+              type="button"
+              class="history-tab"
+              data-history="withdrawals"
+            >
+              Withdrawals
+            </button>
+
+          </div>
+
+
+          <div
+            id="earningsHistory"
+            class="history-list"
+          >
+
+            <!-- Earnings history loaded by JavaScript -->
+
+          </div>
+
+
+          <div
+            id="withdrawalsHistory"
+            class="history-list hidden"
+          >
+
+            <!-- Withdrawal history loaded by JavaScript -->
+
+          </div>
+
+        </section>
+
+
+        <!-- REFERRAL PAGE -->
+        <section
+          id="referralPage"
+          class="page-section hidden"
+        >
+
+          <div class="page-title">
+
+            <div>
+
+              <h1>
+                Referral Program 👥
+              </h1>
+
+              <p>
+                Invite friends and earn extra money
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="referral-card">
+
+            <div class="referral-icon">
+              🎁
+            </div>
+
+
+            <h2>
+              Invite & Earn
+            </h2>
+
+
+            <p>
+              Share your referral link with friends.
+              When they join MarkTask and complete
+              eligible activities, you can earn referral rewards.
+            </p>
+
+
+            <div class="referral-code-box">
+
+              <span>
+                Your Referral Code
+              </span>
+
+              <strong id="referralCode">
+                MARKTASK
+              </strong>
+
+            </div>
+
+
+            <div class="referral-link-box">
+
+              <input
+                type="text"
+                id="referralLink"
+                readonly
+                value=""
+              >
+
+
+              <button
+                type="button"
+                id="copyReferralBtn"
+                class="btn btn-secondary"
+              >
+                Copy
+              </button>
+
+            </div>
+
+
+            <button
+              type="button"
+              id="shareReferralBtn"
+              class="btn btn-primary btn-full"
+            >
+              📤 Share Referral Link
+            </button>
+
+          </div>
+
+
+          <div class="referral-stats">
+
+            <div class="stat-card">
+
+              <span>
+                👥
+              </span>
+
+              <strong id="referralCount">
+                0
+              </strong>
+
+              <small>
+                Referrals
+              </small>
+
+            </div>
+
+
+            <div class="stat-card">
+
+              <span>
+                💰
+              </span>
+
+              <strong id="referralEarnings">
+                ₦0.00
+              </strong>
+
+              <small>
+                Referral Earnings
+              </small>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- SUPPORT PAGE -->
+        <section
+          id="supportPage"
+          class="page-section hidden"
+        >
+
+          <div class="page-title">
+
+            <div>
+
+              <h1>
+                Support 💬
+              </h1>
+
+              <p>
+                We're here to help
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="support-card">
+
+            <div class="support-icon">
+              💬
+            </div>
+
+
+            <h2>
+              Need Help?
+            </h2>
+
+
+            <p>
+              If you have a problem with your account,
+              task, deposit, withdrawal, or payment,
+              contact MarkTask support.
+            </p>
+
+
+            <a
+              href="#"
+              id="supportWhatsAppBtn"
+              class="btn btn-primary btn-full"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Contact Support on WhatsApp
+            </a>
+
+          </div>
+
+
+          <div class="faq-section">
+
+            <h2>
+              Frequently Asked Questions
+            </h2>
+
+
+            <div class="faq-item">
+
+              <button
+                type="button"
+                class="faq-question"
+              >
+                How do I earn money?
+                <span>+</span>
+              </button>
+
+
+              <div class="faq-answer">
+
+                <p>
+                  Open the Tasks page, choose an available
+                  task, complete it, and submit your proof.
+                  Approved tasks add the reward to your balance.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+              <button
+                type="button"
+                class="faq-question"
+              >
+                How long does task approval take?
+                <span>+</span>
+              </button>
+
+
+              <div class="faq-answer">
+
+                <p>
+                  Task approval depends on the advertiser
+                  or administrator reviewing your submitted proof.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+              <button
+                type="button"
+                class="faq-question"
+              >
+                How can I withdraw?
+                <span>+</span>
+              </button>
+
+
+              <div class="faq-answer">
+
+                <p>
+                  Go to Withdraw, enter the amount and
+                  your correct payment details, then submit
+                  your withdrawal request.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+              <button
+                type="button"
+                class="faq-question"
+              >
+                What happens to my pending balance?
+                <span>+</span>
+              </button>
+
+
+              <div class="faq-answer">
+
+                <p>
+                  Rewards from submitted tasks remain pending
+                  until the task is reviewed and approved.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+  </section>
+                  <!-- ADVERTISER DASHBOARD -->
+        <section
+          id="advertiserDashboard"
+          class="page-section hidden advertiser-page"
+        >
+
+          <div class="page-title">
+
+            <div>
+
+              <h1>
+                Advertiser Dashboard 📊
+              </h1>
+
+              <p>
+                Manage your balance and campaigns
+              </p>
+
+            </div>
+
+
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-page="createTaskPage"
+            >
+              + Create Task
+            </button>
+
+          </div>
+
+
+          <!-- ADVERTISER BALANCE -->
+          <div class="advertiser-balance-card">
+
+            <div class="advertiser-balance-info">
+
+              <span>
+                Available Balance
+              </span>
+
+              <h1 id="advertiserBalance">
+                ₦0.00
+              </h1>
+
+            </div>
+
+
+            <div class="advertiser-balance-actions">
+
+              <button
+                type="button"
+                id="depositBtn"
+                class="btn btn-primary"
+              >
+                💳 Deposit
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <!-- ADVERTISER STATS -->
+          <div class="dashboard-stats">
+
+            <div class="stat-card">
+
+              <span class="stat-icon">
+                📋
+              </span>
+
+              <strong id="advertiserTotalTasks">
+                0
+              </strong>
+
+              <small>
+                Total Tasks
+              </small>
+
+            </div>
+
+
+            <div class="stat-card">
+
+              <span class="stat-icon">
+                ▶️
+              </span>
+
+              <strong id="advertiserActiveTasks">
+                0
+              </strong>
+
+              <small>
+                Active Tasks
+              </small>
+
+            </div>
+
+
+            <div class="stat-card">
+
+              <span class="stat-icon">
+                👥
+              </span>
+
+              <strong id="advertiserCompletedTasks">
+                0
+              </strong>
+
+              <small>
+                Completed
+              </small>
+
+            </div>
+
+
+            <div class="stat-card">
+
+              <span class="stat-icon">
+                💰
+              </span>
+
+              <strong id="advertiserSpent">
+                ₦0.00
+              </strong>
+
+              <small>
+                Total Spent
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <!-- RECENT CAMPAIGNS -->
+          <div class="section-heading">
+
+            <div>
+
+              <h2>
+                Recent Campaigns
+              </h2>
+
+              <p>
+                Your latest advertising tasks
+              </p>
+
+            </div>
+
+
+            <button
+              type="button"
+              class="text-btn"
+              data-page="campaignsPage"
+            >
+              View All
+            </button>
+
+          </div>
+
+
+          <div
+            id="advertiserRecentTasks"
+            class="task-list"
+          >
+
+            <!-- Advertiser tasks loaded by JavaScript -->
+
+          </div>
+
+        </section>
+
+
+        <!-- CREATE TASK PAGE -->
+        <section
+          id="createTaskPage"
+          class="page-section hidden advertiser-page"
+        >
+
+          <div class="page-title">
+
+            <button
+              type="button"
+              class="back-btn"
+              data-page="advertiserDashboard"
+            >
+              ← Back
+            </button>
+
+
+            <div>
+
+              <h1>
+                Create Task ➕
+              </h1>
+
+              <p>
+                Create a task for earners to complete
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="create-task-container">
+
+            <form id="createTaskForm">
+
+              <!-- PLATFORM -->
+              <div class="form-group">
+
+                <label for="taskPlatform">
+                  Platform
+                </label>
+
+                <select
+                  id="taskPlatform"
+                  required
+                >
+
+                  <option value="">
+                    Select platform
+                  </option>
+
+                  <option value="tiktok">
+                    TikTok
+                  </option>
+
+                  <option value="instagram">
+                    Instagram
+                  </option>
+
+                  <option value="facebook">
+                    Facebook
+                  </option>
+
+                  <option value="youtube">
+                    YouTube
+                  </option>
+
+                  <option value="telegram">
+                    Telegram
+                  </option>
+
+                  <option value="website">
+                    Website
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <!-- TASK TYPE -->
+              <div class="form-group">
+
+                <label for="taskType">
+                  Task Type
+                </label>
+
+                <select
+                  id="taskType"
+                  required
+                >
+
+                  <option value="">
+                    Select task type
+                  </option>
+
+                  <option value="like">
+                    Like
+                  </option>
+
+                  <option value="follow">
+                    Follow
+                  </option>
+
+                  <option value="comment">
+                    Comment
+                  </option>
+
+                  <option value="custom_comment">
+                    Custom Comment
+                  </option>
+
+                  <option value="share">
+                    Share
+                  </option>
+
+                  <option value="group_join">
+                    Group Join
+                  </option>
+
+                  <option value="channel_follow">
+                    Channel Follow
+                  </option>
+
+                  <option value="start_bot">
+                    Start Bot
+                  </option>
+
+                  <option value="video_view">
+                    Video View
+                  </option>
+
+                  <option value="website_signup">
+                    Website Sign Up
+                  </option>
+
+                  <option value="website_vote">
+                    Website Vote
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <!-- TASK TITLE -->
+              <div class="form-group">
+
+                <label for="taskTitle">
+                  Task Title
+                </label>
+
+                <input
+                  type="text"
+                  id="taskTitle"
+                  placeholder="Example: Follow Mark Software"
+                  required
+                >
+
+              </div>
+
+
+              <!-- TASK LINK -->
+              <div class="form-group">
+
+                <label for="taskLink">
+                  Task Link
+                </label>
+
+                <input
+                  type="url"
+                  id="taskLink"
+                  placeholder="https://..."
+                  required
+                >
+
+                <small>
+                  Enter the link earners should visit.
+                </small>
+
+              </div>
+
+
+              <!-- QUANTITY -->
+              <div class="form-group">
+
+                <label for="taskQuantity">
+                  Quantity
+                </label>
+
+                <input
+                  type="number"
+                  id="taskQuantity"
+                  min="1"
+                  placeholder="Example: 100"
+                  required
+                >
+
+              </div>
+
+
+              <!-- CUSTOM COMMENT -->
+              <div
+                id="customCommentGroup"
+                class="form-group hidden"
+              >
+
+                <label for="customComment">
+                  Custom Comment
+                </label>
+
+                <textarea
+                  id="customComment"
+                  rows="4"
+                  placeholder="Enter the exact comment earners should post..."
+                ></textarea>
+
+              </div>
+
+
+              <!-- AI COMMENT -->
+              <div
+                id="aiCommentGroup"
+                class="form-group hidden"
+              >
+
+                <label>
+                  Comment Option
+                </label>
+
+
+                <div class="comment-options">
+
+                  <label class="radio-card">
+
+                    <input
+                      type="radio"
+                      name="commentMode"
+                      value="custom"
+                      checked
+                    >
+
+                    <span>
+                      Custom Comment
+                    </span>
+
+                  </label>
+
+
+                  <label class="radio-card">
+
+                    <input
+                      type="radio"
+                      name="commentMode"
+                      value="ai"
+                    >
+
+                    <span>
+                      AI Generated Comment
+                    </span>
+
+                  </label>
+
+                </div>
+
+                </div>
+                              <!-- PRICE CALCULATOR -->
+              <div class="price-calculator">
+
+                <div class="calculator-header">
+
+                  <div>
+
+                    <h3>
+                      Price Calculator
+                    </h3>
+
+                    <p>
+                      Calculate your campaign cost
+                    </p>
+
+                  </div>
+
+
+                  <span class="calculator-icon">
+                    🧮
+                  </span>
+
+                </div>
+
+
+                <div class="calculator-row">
+
+                  <span>
+                    Price per task
+                  </span>
+
+                  <strong id="taskUnitPrice">
+                    ₦0.00
+                  </strong>
+
+                </div>
+
+
+                <div class="calculator-row">
+
+                  <span>
+                    Quantity
+                  </span>
+
+                  <strong id="taskCalculatedQuantity">
+                    0
+                  </strong>
+
+                </div>
+
+
+                <div class="calculator-total">
+
+                  <span>
+                    Total Cost
+                  </span>
+
+                  <strong id="taskTotalCost">
+                    ₦0.00
+                  </strong>
+
+                </div>
+
+              </div>
+
+
+              <!-- CREATE TASK NOTICE -->
+              <div class="create-task-notice">
+
+                <span>
+                  ℹ️
+                </span>
+
+                <p>
+                  Your available balance must be enough
+                  to cover the total campaign cost before
+                  the task can be created.
+                </p>
+
+              </div>
+
+
+              <!-- SUBMIT TASK -->
+              <button
+                type="submit"
+                id="createTaskBtn"
+                class="btn btn-primary btn-full"
+              >
+                Create Task
+              </button>
+
+            </form>
+
+          </div>
+
+        </section>
+
+
+        <!-- CAMPAIGNS PAGE -->
+        <section
+          id="campaignsPage"
+          class="page-section hidden advertiser-page"
+        >
+
+          <div class="page-title">
+
+            <div>
+
+              <h1>
+                My Campaigns 📢
+              </h1>
+
+              <p>
+                Manage all your advertising tasks
+              </p>
+
+            </div>
+
+
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-page="createTaskPage"
+            >
+              + Create Task
+            </button>
+
+          </div>
+
+
+          <div class="campaign-filters">
+
+            <button
+              type="button"
+              class="campaign-filter active"
+              data-campaign-filter="all"
+            >
+              All
+            </button>
+
+
+            <button
+              type="button"
+              class="campaign-filter"
+              data-campaign-filter="active"
+            >
+              Active
+            </button>
+
+
+            <button
+              type="button"
+              class="campaign-filter"
+              data-campaign-filter="completed"
+            >
+              Completed
+            </button>
+
+
+            <button
+              type="button"
+              class="campaign-filter"
+              data-campaign-filter="paused"
+            >
+              Paused
+            </button>
+
+          </div>
+
+
+          <div
+            id="campaignsList"
+            class="campaign-list"
+          >
+
+            <!-- Campaigns loaded by JavaScript -->
+
+          </div>
+
+        </section>
+
+
+        <!-- DEPOSIT PAGE -->
+        <section
+          id="depositPage"
+          class="page-section hidden advertiser-page"
+        >
+
+          <div class="page-title">
+
+            <button
+              type="button"
+              class="back-btn"
+              data-page="advertiserDashboard"
+            >
+              ← Back
+            </button>
+
+
+            <div>
+
+              <h1>
+                Deposit Funds 💳
+              </h1>
+
+              <p>
+                Add money to your advertiser balance
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="deposit-container">
+
+            <div class="deposit-info-card">
+
+              <div class="deposit-info-icon">
+                💰
+              </div>
+
+
+              <h2>
+                Fund Your Account
+              </h2>
+
+
+              <p>
+                Send your deposit using the payment
+                details provided below.
+              </p>
+
+            </div>
+
+
+            <!-- DEPOSIT AMOUNT -->
+            <form id="depositForm">
+
+              <div class="form-group">
+
+                <label for="depositAmount">
+                  Deposit Amount
+                </label>
+
+
+                <div class="money-input">
+
+                  <span>
+                    ₦
+                  </span>
+
+                  <input
+                    type="number"
+                    id="depositAmount"
+                    min="100"
+                    placeholder="Enter amount"
+                    required
+                  >
+
+                </div>
+
+              </div>
+
+
+              <!-- PAYMENT DETAILS -->
+              <div class="payment-details">
+
+                <h3>
+                  Payment Details
+                </h3>
+
+
+                <div class="payment-detail-row">
+
+                  <span>
+                    Payment Method
+                  </span>
+
+                  <strong>
+                    Bank Transfer
+                  </strong>
+
+                </div>
+
+
+                <div class="payment-detail-row">
+
+                  <span>
+                    Account Name
+                  </span>
+
+                  <strong id="depositAccountName">
+                    MarkTask
+                  </strong>
+
+                </div>
+
+
+                <div class="payment-detail-row">
+
+                  <span>
+                    Account Number
+                  </span>
+
+                  <strong id="depositAccountNumber">
+                    0000000000
+                  </strong>
+
+                </div>
+
+
+                <div class="payment-detail-row">
+
+                  <span>
+                    Bank
+                  </span>
+
+                  <strong id="depositBankName">
+                    Payment Bank
+                  </strong>
+
+                </div>
+
+              </div>
+
+
+              <div class="deposit-warning">
+
+                <span>
+                  ⚠️
+                </span>
+
+                <p>
+                  Only send the exact amount you entered.
+                  After making the transfer, click
+                  "I Have Sent It" to submit your deposit
+                  for approval.
+                </p>
+
+              </div>
+
+
+              <button
+                type="submit"
+                class="btn btn-primary btn-full"
+              >
+                I Have Sent It
+              </button>
+
+            </form>
+
+          </div>
+
+  </section>
+          <!-- DEPOSIT WAITING / TIMER -->
+        <section
+          id="depositWaitingPage"
+          class="page-section hidden advertiser-page"
+        >
+
+          <div class="deposit-waiting-container">
+
+            <div class="waiting-icon">
+              ⏳
+            </div>
+
+
+            <h1>
+              Deposit Submitted
+            </h1>
+
+
+            <p>
+              Your deposit request has been submitted
+              and is waiting for administrator approval.
+            </p>
+
+
+            <div class="deposit-amount-display">
+
+              <span>
+                Deposit Amount
+              </span>
+
+              <strong id="waitingDepositAmount">
+                ₦0.00
+              </strong>
+
+            </div>
+
+
+            <!-- 15 MINUTE TIMER -->
+            <div class="deposit-timer">
+
+              <span>
+                Approval Timer
+              </span>
+
+
+              <strong id="depositTimer">
+                15:00
+              </strong>
+
+            </div>
+
+
+            <div class="waiting-notice">
+
+              <span>
+                ℹ️
+              </span>
+
+              <p>
+                Please wait while your deposit is reviewed.
+                Do not submit the same deposit again.
+              </p>
+
+            </div>
+
+
+            <a
+              href="#"
+              id="depositSupportBtn"
+              class="btn btn-secondary btn-full"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              💬 Contact Support
+            </a>
+
+
+            <button
+              type="button"
+              class="text-btn"
+              data-page="advertiserDashboard"
+            >
+              Return to Dashboard
+            </button>
+
+          </div>
+
+        </section>
+
+
+        <!-- ADMIN PAGE -->
+        <section
+          id="adminPage"
+          class="page-section hidden admin-page"
+        >
+
+          <div class="page-title">
+
+            <div>
+
+              <h1>
+                Admin Panel 🛠️
+              </h1>
+
+              <p>
+                Manage MarkTask platform
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- ADMIN STATS -->
+          <div class="dashboard-stats">
+
+            <div class="stat-card">
+
+              <span class="stat-icon">
+                👥
+              </span>
+
+              <strong id="adminTotalUsers">
+                0
+              </strong>
+
+              <small>
+                Total Users
+              </small>
+
+            </div>
+
+
+            <div class="stat-card">
+
+              <span class="stat-icon">
+                📋
+              </span>
+
+              <strong id="adminTotalTasks">
+                0
+              </strong>
+
+              <small>
+                Total Tasks
+              </small>
+
+            </div>
+
+
+            <div class="stat-card">
+
+              <span class="stat-icon">
+                💳
+              </span>
+
+              <strong id="adminPendingDeposits">
+                0
+              </strong>
+
+              <small>
+                Pending Deposits
+              </small>
+
+            </div>
+
+
+            <div class="stat-card">
+
+              <span class="stat-icon">
+                💸
+              </span>
+
+              <strong id="adminPendingWithdrawals">
+                0
+              </strong>
+
+              <small>
+                Pending Withdrawals
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <!-- ADMIN TABS -->
+          <div class="admin-tabs">
+
+            <button
+              type="button"
+              class="admin-tab active"
+              data-admin-tab="deposits"
+            >
+              Deposits
+            </button>
+
+
+            <button
+              type="button"
+              class="admin-tab"
+              data-admin-tab="tasks"
+            >
+              Tasks
+            </button>
+
+
+            <button
+              type="button"
+              class="admin-tab"
+              data-admin-tab="withdrawals"
+            >
+              Withdrawals
+            </button>
+
+
+            <button
+              type="button"
+              class="admin-tab"
+              data-admin-tab="users"
+            >
+              Users
+            </button>
+
+          </div>
+
+
+          <!-- ADMIN DEPOSITS -->
+          <div
+            id="adminDepositsTab"
+            class="admin-tab-content"
+          >
+
+            <div class="admin-section-heading">
+
+              <div>
+
+                <h2>
+                  Deposit Requests
+                </h2>
+
+                <p>
+                  Review advertiser deposits
+                </p>
+
+              </div>
+
+
+              <button
+                type="button"
+                id="refreshDepositsBtn"
+                class="icon-btn"
+              >
+                🔄
+              </button>
+
+            </div>
+
+
+            <div
+              id="adminDepositsList"
+              class="admin-list"
+            >
+
+              <!-- Deposits loaded by JavaScript -->
+
+            </div>
+
+          </div>
+
+
+          <!-- ADMIN TASKS -->
+          <div
+            id="adminTasksTab"
+            class="admin-tab-content hidden"
+          >
+
+            <div class="admin-section-heading">
+
+              <div>
+
+                <h2>
+                  Task Management
+                </h2>
+
+                <p>
+                  Manage advertiser-created tasks
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div
+              id="adminTasksList"
+              class="admin-list"
+            >
+
+              <!-- Tasks loaded by JavaScript -->
+
+            </div>
+
+          </div>
+
+
+          <!-- ADMIN WITHDRAWALS -->
+          <div
+            id="adminWithdrawalsTab"
+            class="admin-tab-content hidden"
+          >
+
+            <div class="admin-section-heading">
+
+              <div>
+
+                <h2>
+                  Withdrawal Requests
+                </h2>
+
+                <p>
+                  Review and process withdrawals
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div
+              id="adminWithdrawalsList"
+              class="admin-list"
+            >
+
+              <!-- Withdrawals loaded by JavaScript -->
+
+            </div>
+
+          </div>
+
+
+          <!-- ADMIN USERS -->
+          <div
+            id="adminUsersTab"
+            class="admin-tab-content hidden"
+          >
+
+            <div class="admin-section-heading">
+
+              <div>
+
+                <h2>
+                  User Management
+                </h2>
+
+                <p>
+                  Manage MarkTask accounts
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div
+              id="adminUsersList"
+              class="admin-list"
+            >
+
+              <!-- Users loaded by JavaScript -->
+
+            </div>
+
+          </div>
+
+  </section>
+          <!-- PROFILE PAGE -->
+        <section
+          id="profilePage"
+          class="page-section hidden"
+        >
+
+          <div class="page-title">
+
+            <div>
+
+              <h1>
+                My Profile 👤
+              </h1>
+
+              <p>
+                Manage your MarkTask account
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="profile-card">
+
+            <div class="profile-avatar-large">
+              <span id="profilePageInitial">
+                M
+              </span>
+            </div>
+
+
+            <h2 id="profilePageName">
+              Mark
+            </h2>
+
+
+            <p id="profilePageUsername">
+              @username
+            </p>
+
+
+            <span
+              id="profilePageRole"
+              class="role-badge"
+            >
+              Earner
+            </span>
+
+          </div>
+
+
+          <!-- PROFILE INFORMATION -->
+          <div class="settings-card">
+
+            <div class="settings-card-header">
+
+              <h2>
+                Account Information
+              </h2>
+
+            </div>
+
+
+            <div class="profile-info-row">
+
+              <span>
+                Full Name
+              </span>
+
+              <strong id="profileFullName">
+                —
+              </strong>
+
+            </div>
+
+
+            <div class="profile-info-row">
+
+              <span>
+                Username
+              </span>
+
+              <strong id="profileUsername">
+                —
+              </strong>
+
+            </div>
+
+
+            <div class="profile-info-row">
+
+              <span>
+                Email
+              </span>
+
+              <strong id="profileEmail">
+                —
+              </strong>
+
+            </div>
+
+
+            <div class="profile-info-row">
+
+              <span>
+                Account Type
+              </span>
+
+              <strong id="profileRole">
+                —
+              </strong>
+
+            </div>
+
+
+            <div class="profile-info-row">
+
+              <span>
+                Email Status
+              </span>
+
+              <strong
+                id="profileEmailStatus"
+                class="status-approved"
+              >
+                Verified
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          <!-- ACCOUNT ACTIONS -->
+          <div class="settings-card">
+
+            <div class="settings-card-header">
+
+              <h2>
+                Account Settings
+              </h2>
+
+            </div>
+
+
+            <button
+              type="button"
+              id="changePasswordBtn"
+              class="settings-action"
+            >
+
+              <span>
+                🔐
+              </span>
+
+              <div>
+
+                <strong>
+                  Change Password
+                </strong>
+
+                <small>
+                  Update your account password
+                </small>
+
+              </div>
+
+              <span>
+                ›
+              </span>
+
+            </button>
+
+
+            <button
+              type="button"
+              id="editProfileBtn"
+              class="settings-action"
+            >
+
+              <span>
+                ✏️
+              </span>
+
+              <div>
+
+                <strong>
+                  Edit Profile
+                </strong>
+
+                <small>
+                  Update your profile information
+                </small>
+
+              </div>
+
+              <span>
+                ›
+              </span>
+
+            </button>
+
+
+            <button
+              type="button"
+              id="logoutProfileBtn"
+              class="settings-action danger-action"
+            >
+
+              <span>
+                🚪
+              </span>
+
+              <div>
+
+                <strong>
+                  Logout
+                </strong>
+
+                <small>
+                  Sign out of your account
+                </small>
+
+              </div>
+
+              <span>
+                ›
+              </span>
+
+            </button>
+
+          </div>
+
+        </section>
+
+
+        <!-- CHANGE PASSWORD PAGE -->
+        <section
+          id="changePasswordPage"
+          class="page-section hidden"
+        >
+
+          <div class="page-title">
+
+            <button
+              type="button"
+              class="back-btn"
+              data-page="profilePage"
+            >
+              ← Back
+            </button>
+
+
+            <div>
+
+              <h1>
+                Change Password 🔐
+              </h1>
+
+              <p>
+                Keep your account secure
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="settings-container">
+
+            <form id="changePasswordForm">
+
+              <div class="form-group">
+
+                <label for="currentPassword">
+                  Current Password
+                </label>
+
+                <input
+                  type="password"
+                  id="currentPassword"
+                  placeholder="Enter current password"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="newPassword">
+                  New Password
+                </label>
+
+                <input
+                  type="password"
+                  id="newPassword"
+                  placeholder="Enter new password"
+                  minlength="6"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="confirmNewPassword">
+                  Confirm New Password
+                </label>
+
+                <input
+                  type="password"
+                  id="confirmNewPassword"
+                  placeholder="Confirm new password"
+                  minlength="6"
+                  required
+                >
+
+              </div>
+
+
+              <button
+                type="submit"
+                class="btn btn-primary btn-full"
+              >
+                Update Password
+              </button>
+
+            </form>
+
+          </div>
+
+        </section>
+
+
+        <!-- EDIT PROFILE PAGE -->
+        <section
+          id="editProfilePage"
+          class="page-section hidden"
+        >
+
+          <div class="page-title">
+
+            <button
+              type="button"
+              class="back-btn"
+              data-page="profilePage"
+            >
+              ← Back
+            </button>
+
+
+            <div>
+
+              <h1>
+                Edit Profile ✏️
+              </h1>
+
+              <p>
+                Update your account information
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="settings-container">
+
+            <form id="editProfileForm">
+
+              <div class="form-group">
+
+                <label for="editFullName">
+                  Full Name
+                </label>
+
+                <input
+                  type="text"
+                  id="editFullName"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="editUsername">
+                  Username
+                </label>
+
+                <input
+                  type="text"
+                  id="editUsername"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="editPhone">
+                  Phone Number
+                </label>
+
+                <input
+                  type="tel"
+                  id="editPhone"
+                  placeholder="080..."
+                >
+
+              </div>
+
+
+              <button
+                type="submit"
+                class="btn btn-primary btn-full"
+              >
+                Save Changes
+              </button>
+
+            </form>
+
+          </div>
+
+    </section>
+            <!-- NOTIFICATIONS PAGE -->
+        <section
+          id="notificationsPage"
+          class="page-section hidden"
+        >
+
+          <div class="page-title">
+
+            <div>
+
+              <h1>
+                Notifications 🔔
+              </h1>
+
+              <p>
+                Stay updated with your MarkTask activity
+              </p>
+
+            </div>
+
+
+            <button
+              type="button"
+              id="markNotificationsReadBtn"
+              class="text-btn"
+            >
+              Mark all as read
+            </button>
+
+          </div>
+
+
+          <div
+            id="notificationsList"
+            class="notifications-list"
+          >
+
+            <!-- Notifications loaded by JavaScript -->
+
+          </div>
+
+        </section>
+
+
+        <!-- EMPTY STATE TEMPLATE -->
+        <div
+          id="emptyStateTemplate"
+          class="empty-state hidden"
+        >
+
+          <div class="empty-state-icon">
+            📭
+          </div>
+
+
+          <h3>
+            Nothing here yet
+          </h3>
+
+
+          <p>
+            There is currently no information to display.
+          </p>
+
+        </div>
+
+
+        <!-- CONFIRMATION MODAL -->
+        <div
+          id="confirmModal"
+          class="modal hidden"
+        >
+
+          <div class="modal-overlay"></div>
+
+
+          <div class="modal-content">
+
+            <button
+              type="button"
+              id="closeConfirmModalBtn"
+              class="modal-close"
+              aria-label="Close"
+            >
+              ✕
+            </button>
+
+
+            <div class="modal-icon">
+              ⚠️
+            </div>
+
+
+            <h2 id="confirmModalTitle">
+              Confirm Action
+            </h2>
+
+
+            <p id="confirmModalMessage">
+              Are you sure you want to continue?
+            </p>
+
+
+            <div class="modal-actions">
+
+              <button
+                type="button"
+                id="cancelConfirmBtn"
+                class="btn btn-secondary"
+              >
+                Cancel
+              </button>
+
+
+              <button
+                type="button"
+                id="confirmActionBtn"
+                class="btn btn-primary"
+              >
+                Confirm
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- TASK MODAL -->
+        <div
+          id="taskModal"
+          class="modal hidden"
+        >
+
+          <div class="modal-overlay"></div>
+
+
+          <div class="modal-content task-modal-content">
+
+            <button
+              type="button"
+              id="closeTaskModalBtn"
+              class="modal-close"
+              aria-label="Close"
+            >
+              ✕
+            </button>
+
+
+            <div
+              id="taskModalContent"
+              class="task-modal-body"
+            >
+
+              <!-- Task information loaded by JavaScript -->
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- TOAST NOTIFICATION -->
+        <div
+          id="toastContainer"
+          class="toast-container"
+        ></div>
+
+
+        <!-- LOADING OVERLAY -->
+        <div
+          id="appLoadingOverlay"
+          class="app-loading-overlay hidden"
+        >
+
+          <div class="app-loader"></div>
+
+          <p id="appLoadingText">
+            Please wait...
+          </p>
+
+        </div>
+                <!-- CHANGE PASSWORD MODAL -->
+        <div
+          id="passwordModal"
+          class="modal hidden"
+        >
+
+          <div class="modal-overlay"></div>
+
+
+          <div class="modal-content">
+
+            <button
+              type="button"
+              id="closePasswordModalBtn"
+              class="modal-close"
+              aria-label="Close"
+            >
+              ✕
+            </button>
+
+
+            <div class="modal-icon">
+              🔐
+            </div>
+
+
+            <h2>
+              Change Password
+            </h2>
+
+
+            <p>
+              Enter your new password below.
+            </p>
+
+
+            <form id="passwordModalForm">
+
+              <div class="form-group">
+
+                <label for="modalNewPassword">
+                  New Password
+                </label>
+
+                <input
+                  type="password"
+                  id="modalNewPassword"
+                  placeholder="Enter new password"
+                  minlength="6"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="modalConfirmPassword">
+                  Confirm Password
+                </label>
+
+                <input
+                  type="password"
+                  id="modalConfirmPassword"
+                  placeholder="Confirm new password"
+                  minlength="6"
+                  required
+                >
+
+              </div>
+
+
+              <button
+                type="submit"
+                class="btn btn-primary btn-full"
+              >
+                Update Password
+              </button>
+
+            </form>
+
+          </div>
+
+        </div>
+
+
+        <!-- EDIT PROFILE MODAL -->
+        <div
+          id="editProfileModal"
+          class="modal hidden"
+        >
+
+          <div class="modal-overlay"></div>
+
+
+          <div class="modal-content">
+
+            <button
+              type="button"
+              id="closeEditProfileModalBtn"
+              class="modal-close"
+              aria-label="Close"
+            >
+              ✕
+            </button>
+
+
+            <div class="modal-icon">
+              ✏️
+            </div>
+
+
+            <h2>
+              Edit Profile
+            </h2>
+
+
+            <form id="profileModalForm">
+
+              <div class="form-group">
+
+                <label for="modalFullName">
+                  Full Name
+                </label>
+
+                <input
+                  type="text"
+                  id="modalFullName"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="modalUsername">
+                  Username
+                </label>
+
+                <input
+                  type="text"
+                  id="modalUsername"
+                  required
+                >
+
+              </div>
+
+
+              <button
+                type="submit"
+                class="btn btn-primary btn-full"
+              >
+                Save Profile
+              </button>
+
+            </form>
+
+          </div>
+
+        </div>
+
+
+        <!-- FOOTER -->
+        <footer class="app-footer">
+
+          <p>
+            © <span id="currentYear">2026</span>
+            MarkTask
+          </p>
+
+          <p>
+            Made by Mark Software
+          </p>
+
+        </footer>
+
+  </main>
+      </div>
+    <!-- END OF MAIN APPLICATION -->
+
+  </div>
+  <!-- END OF APP -->
+
+  <script src="script.js"></script>
+
+</body>
+  </html>
+  /* =========================================
+   MARKTASK - GLOBAL STYLES
+   ========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #16a34a;
+  --primary-dark: #15803d;
+  --primary-light: #dcfce7;
+
+  --secondary: #2563eb;
+  --danger: #dc2626;
+  --warning: #f59e0b;
+
+  --text: #111827;
+  --text-light: #6b7280;
+
+  --background: #f5f7fa;
+  --white: #ffffff;
+
+  --border: #e5e7eb;
+
+  --shadow:
+    0 4px 15px rgba(0, 0, 0, 0.08);
+
+  --radius: 12px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  background: var(--background);
+  color: var(--text);
+
+  min-height: 100vh;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 13px 14px;
+  background: var(--white);
+  color: var(--text);
+  outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary);
+  box-shadow:
+    0 0 0 3px rgba(22, 163, 74, 0.12);
+}
+
+textarea {
+  resize: vertical;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.hidden {
+  display: none !important;
+}
