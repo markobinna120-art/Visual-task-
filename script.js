@@ -1,3 +1,4 @@
+console.log("SCRIPT STARTED");
 /* =========================================
    MARKTASK APPLICATION JAVASCRIPT
    PART 1 - CORE SETUP
@@ -9,7 +10,7 @@
 // ================================
 
 
-const APP_NAME = "MarkTask";
+const APP_NAME = "VisualTask";
 
 
 const ADMIN_EMAIL = "markobinna120@gmail.com";
