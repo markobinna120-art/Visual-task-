@@ -2918,3 +2918,4 @@ function sendSignupEmail(
 
 
       }
+console.log("MarkTask script loaded successfully");
